@@ -13,7 +13,7 @@ export default function getJsonPath(jsonText: string, offsetPosition: number) {
       if (!isFirst) {
         return accumulated + propertyPath;
       }
-      return propertyPath;
+      return "[\""+propertyPath+"\"]";
     },
     '',
   );
@@ -34,7 +34,7 @@ function getPropertyPath(
   if (isFirst) {
     return propertyName.toString();
   }
-  return '.' + propertyName;
+  return    "[\"" + propertyName + "\"]";
 }
 
 export function getPropertyPathWithQuotes(propertyName: jsonc.Segment): string {
